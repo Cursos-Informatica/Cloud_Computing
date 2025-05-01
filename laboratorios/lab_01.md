@@ -28,4 +28,8 @@
 <img src="img/img03.png" width="500">
 </p>
 
-3. Arranca tu nueva máquina virtual. Verás que existe un usuario ya creado llamado oxboxes La contraseña es osboxes.org (está indicada en la página de OSBoxes desde donde has descargado tu nueva máquina virtual).
+4. Arranca tu nueva máquina virtual. Verás que existe un usuario ya creado llamado oxboxes La contraseña es osboxes.org (está indicada en la página de OSBoxes desde donde has descargado tu nueva máquina virtual).
+
+<p align="center">
+<img src="img/img04.png" width="500">
+</p>
