@@ -10,7 +10,7 @@ az vm list
 
 ```
 az vm list-ip-addresses  \
---name **my-vm** --resource-group __learn-1b15e28a-1a68-4407-af6f-0dd2d1fc914f__ --output table
+--name my-vm --resource-group learn-1b15e28a-1a68-4407-af6f-0dd2d1fc914f --output table
 ```
 
 | VirtualMachine | PublicIPAddresses | PrivateIPAddresses |
@@ -27,5 +27,5 @@ ssh azureuser@<IP_PUBLICA>
 
 ```
 az network nsg rule list \
-  --nsg-name __my-vmNSG__  --resource-group __learn-1b15e28a-1a68-4407-af6f-0dd2d1fc914f__  --output table
+  --nsg-name my-vmNSG  --resource-group learn-1b15e28a-1a68-4407-af6f-0dd2d1fc914f  --output table
 ```
