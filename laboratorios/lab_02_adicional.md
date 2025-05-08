@@ -105,7 +105,7 @@ sudo apt install phpmyadmin
 Ingresa al navegador coloca, http://localhost/phpmyadmin
 
 <p align="center">
-<img src="img/lab02a_07.png" width="500">
+<img src="img/lab02a_12.png" width="500">
 </p>
 
 ### MariaDB
