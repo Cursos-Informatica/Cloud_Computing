@@ -3,6 +3,8 @@
 ## Descargar Virtual Box y Linux Debian
  - Descargar e instalar el software Virtual box : https://www.virtualbox.org/wiki/Downloads
  - Descargar Linux Debian : https://www.osboxes.org/debian/
+ - Descargar el Linux desde Drive :  https://drive.google.com/drive/folders/1McbHl3xj2EZrtO9LnqsHK_nQURSJvjnW?usp=drive_link
+
 
 ## Instalar Linux Debian en VirtualBox
 
@@ -11,27 +13,27 @@
 1. Descargar de la web de OSBoxes la máquina virtual de la distribución Linux que desees (dentro del amplio menú de «sabores» que se te ofrecen) y descomprimir el archivo descargado (es un ZIP) en la carpeta en la que tengas todas tus máquinas virtuales (o donde creas conveniente, claro).
 
 <p align="center">
-<img src="img/img01.png" width="500">
+<img src="img/lab02a_01.png" width="500">
 </p>
 
 
 2. Abre VirtualBox y crea una nueva máquina virtual. 
 
 <p align="center">
-<img src="img/img02.png" width="500">
+<img src="img/lab02a_02.png" width="500">
 </p>
 
 
 3. Cuando se te pregunte por el disco duro selecciona la última opción “utilizar un fichero de disco virtual existente”; busca el que descargaste y asígnaselo.
 
 <p align="center">
-<img src="img/img03.png" width="500">
+<img src="img/lab02a_03.png" width="500">
 </p>
 
 4. Arranca tu nueva máquina virtual. Verás que existe un usuario ya creado llamado osboxes La contraseña es osboxes.org (está indicada en la página de OSBoxes desde donde has descargado tu nueva máquina virtual).
 
 <p align="center">
-<img src="img/img04.png" width="500">
+<img src="img/lab02a_04.png" width="500">
 </p>
 
 
@@ -68,7 +70,7 @@ Podemos comprobar el estado de estos servicios con el comando systemctl:
 ```
 
 <p align="center">
-<img src="img/img05.png" width="500">
+<img src="img/lab02a_05.png" width="500">
 </p>
 
 ### Cómo probar la pila LAMP en Debian 12 Bookworm
@@ -89,7 +91,7 @@ Para acceder a esta página desde un navegador introduciremos la dirección IP, 
 Por ejemplo, la máquina Debian 12 Bookworm sobre la que hemos preparado este tutorial es accesible en el subdominio debian12.local.lan, así que podemos usar http://debian12.local.lan/info.php como URL de prueba de la pila LAMP:
 
 <p align="center">
-<img src="img/img06.png" width="500">
+<img src="img/lab02a_06.png" width="500">
 </p>
 
 Esta página no sólo demuestra que la pila LAMP funciona, sino que ofrecerá abundante información sobre versiones y configuraciones.
@@ -99,12 +101,30 @@ Por defecto el usuario root de MariaDB se identifica a través de sockets de Lin
 ```
 ~$ sudo mysql
 ```
-configurar la pila lamp en debian 12 bookworm
 
-O con el usuario root de Debian 12:
-```
-~# mysql
-```
+<p align="center">
+<img src="img/lab02a_07.png" width="500">
+</p>
+
 A través del cliente de consola mysql podrás crear las bases de datos y usuarios que necesiten las aplicaciones web.
 
 Puedes cerrar la conexión con el comando exit.
+
+
+## Sustento
+ - Crear un archivo web en la ruta del servicio web de apache y colocar sus datos.
+Ingresar a la carpeta /var/www/html/ y crear el archivo index1.html, para crear el archivo utilizar el comnado
+```
+$ sudo nano index1.html
+```
+ <p align="center">
+<img src="img/lab02a_10.png" width="500">
+</p>
+<p align="center">
+<img src="img/lab02a_10.png" width="500">
+</p>
+
+ - Crear una BD con su el nombre del curso, crear una tabla usuarios y agregar sus datos.
+
+ - Capturar pantalla y guardarlo en un archivo con su apellido_nombre en la ruta de la clase 06.
+
