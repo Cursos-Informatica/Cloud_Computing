@@ -26,16 +26,7 @@ http://localhost:8080
 Aquí podrás interactuar con la aplicación y explorar sus vulnerabilidades para fines educativos y de prueba.
 Medium
 
-🔹 4. Reconstruir los contenedores (opcional)
-Si necesitas reconstruir los contenedores, por ejemplo, después de realizar cambios en el código o en la configuración, puedes utilizar el script proporcionado:
-
-```
-./recreate.sh
-```
-Este script detendrá y eliminará los contenedores existentes, y luego los recreará desde cero.
-GitHub
-
-🔹 5. Restaurar la base de datos (si es necesario)
+🔹 4. Restaurar la base de datos (si es necesario)
 Si realizas cambios en la base de datos que desees revertir, como eliminar tablas, puedes restaurarla ejecutando:
 
 ```
