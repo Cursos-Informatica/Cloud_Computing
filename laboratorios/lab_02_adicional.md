@@ -96,6 +96,18 @@ Por ejemplo, la máquina Debian 12 Bookworm sobre la que hemos preparado este tu
 
 Esta página no sólo demuestra que la pila LAMP funciona, sino que ofrecerá abundante información sobre versiones y configuraciones.
 
+### Instalamos el PHPMYADMIN
+```
+sudo apt update
+sudo apt install phpmyadmin
+```
+
+Ingresa al navegador coloca, http://localhost/phpmyadmin
+
+<p align="center">
+<img src="img/lab02a_07.png" width="500">
+</p>
+
 ### MariaDB
 Por defecto el usuario root de MariaDB se identifica a través de sockets de Linux, así que no se necesita contraseña, bastará trabajar con un usuario con permisos de sudo:
 ```
@@ -106,25 +118,42 @@ Por defecto el usuario root de MariaDB se identifica a través de sockets de Lin
 <img src="img/lab02a_07.png" width="500">
 </p>
 
-A través del cliente de consola mysql podrás crear las bases de datos y usuarios que necesiten las aplicaciones web.
 
+ Para cambiar la contraseña del root en MYSQL, se utilizan los siguiente comandos:
+```
+ sudo mysql
+
+ ALTER USER 'root'@'localhost' IDENTIFIED  BY 'NUEVA_CONTRASEÑA';
+ FLUSH PRIVILEGES;
+
+ EXIT;
+```
 Puedes cerrar la conexión con el comando exit.
+
+A través del cliente de consola mysql podrás crear las bases de datos y usuarios que necesiten las aplicaciones web.
 
 
 ## Sustento
  - Crear un archivo web en la ruta del servicio web de apache y colocar sus datos.
 Ingresar a la carpeta /var/www/html/ y crear el archivo index1.html, para crear el archivo utilizar el comnado
 ```
-$ sudo nano index1.html
+sudo nano index1.html
 ```
  <p align="center">
 <img src="img/lab02a_10.png" width="500">
 </p>
 <p align="center">
-<img src="img/lab02a_10.png" width="500">
+<img src="img/lab02a_11.png" width="500">
 </p>
 
- - Crear una BD con su el nombre del curso, crear una tabla usuarios y agregar sus datos.
+ - Crear una BD con su el nombre del curso, crear una tabla usuarios y agregar sus datos. 
+
+ Para ello ingresa a PHPMYADMIN con el usuario root y la contraseña que le asigno.
+
+<p align="center">
+<img src="img/lab02a_13.png" width="500">
+</p>
+
 
  - Capturar pantalla y guardarlo en un archivo con su apellido_nombre en la ruta de la clase 06.
 
