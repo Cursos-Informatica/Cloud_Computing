@@ -1,3 +1,5 @@
+# Instalación de Minikube
+
 ## Instalar Minikube
 
 - Antes de empezar, es importante tener en cuenta, que para ejecutar este laboratorio, tu maquina local, debe contar con un procesador que te permita realizar virtualizacación anidada.
@@ -91,6 +93,9 @@ Si no te funciono el driver de docker, puede ejecutar minikube con podman.
 minikube start --vm-driver=podman
 ```
 
+# Creación de PODs
+
+
 ## Crear un pod desde linea de Comando
 
 Agregando un pod
@@ -118,16 +123,45 @@ kubectl describe pod {NOMBRE DEL POD}
 
 ## Crear un pod desde un manifiesto
 
-Creamos el archivo yaml
+Primero creamos unas carpetas y el archivo pod.yaml 
+```
+mkdir kubernetes
+cd kubernetes
+mkdir pods
+nano pod.yamp
+```
+Una vez abierto el archivo,  copiamos del siguiente enlace : https://kubernetes.io/docs/concepts/workloads/pods/
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+```
 
 
+<p align="center">
+<img src="img/lab04_05.png" width="500">
+</p>
+
+Presionamos CTRL+X para cerrar, Y para guardar los cambios y enter para confirmar el nombre.
+
+Luego, Ejecutamos el archivo
+```
+kubectl apply -f pod.yaml
+```
 
 
-
-Ejecutamos el archivo
-
-
-
+Si deseas saber cuales son todos los tipos de recursos que existen para crear, ejecutamos el siguiente comando:
+```
+kubectl api-resources
+```
 
 ## Conexion al pod
 
@@ -160,3 +194,98 @@ Entrar a un navegador y escribir http://localhost:8080
 ```
 kubectl exec -ti podtest -- sh
 ```
+
+## Crear un pod con dos contenedores
+
+Primero creamos unas carpetas y el archivo doscont.yaml , dentro de la carpeta kubernetes/pods
+
+```
+nano doscont.yaml
+
+```
+
+Luego procedemos a copiar lo siguiente:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: doscont
+spec:
+  containers:
+  - name: contenedor1
+    image: python:3.6-alpine
+    command: ['sh', '-c', 'echo Hola_Contenedor_1 > index.html && python -m http.server 8082']
+  - name: contenedor2
+    image: python:3.6-alpine
+    command: ['sh', '-c', 'echo Hola_Contenedor_2 > index.html && python -m http.server 8083']
+```
+Presionamos CTRL+X para cerrar, Y para guardar los cambios y enter para confirmar el nombre.
+
+Luego, Ejecutamos el archivo
+```
+kubectl apply -f doscont.yaml
+```
+
+Revisar los log de un contendor ejecutamos el siguiente comando.
+
+```
+kubectl logs doscont -c {NOMBRE_CONTENEDOR}
+```
+
+Ingresar a un contenedor
+
+```
+kubectl exec -ti doscont -c {NOMBRE_CONTENEDOR} -- sh
+```
+
+Instalar curl en el linux alpine
+```
+apk add -U curl
+```
+
+Si deseamos ver la respuesta de la web que esta en el localhost del contenedor, ejecutamos lo siguiente
+```
+curl localhost:8082
+curl localhost:8083
+```
+
+### Agregar Etiquetas (LABEL)
+
+Primero creamos unas carpetas y el archivo etiqueta.yaml , dentro de la carpeta kubernetes/pods
+
+```
+nano etiqueta.yaml
+
+```
+
+Luego procedemos a copiar lo siguiente:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest2
+  label: 
+    app: front
+    env: dev
+spec:
+  containers:
+  - name: contenedor1
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest3
+  label: 
+    app: backend
+    env: dev
+spec:
+  containers:
+  - name: contenedor1
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
